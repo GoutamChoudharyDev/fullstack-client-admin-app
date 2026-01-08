@@ -1,10 +1,13 @@
-import React from 'react'
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import AdminPanel from "./pages/AdminPanel"
 
 const App = () => {
   return (
-    <div className='bg-red-500'>
-      app
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/admin" element={<AdminPanel />} />
+    </Routes>
   )
 }
 
