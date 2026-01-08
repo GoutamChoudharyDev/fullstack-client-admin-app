@@ -1,20 +1,31 @@
-
-
-const ProjectCard = () => {
+const ProjectCard = ({ image, title, description }) => {
   return (
-    <div className="bg-white shadow rounded p-4">
-      <img
-        src="https://via.placeholder.com/300"
-        alt="project"
-        className="w-full h-48 object-cover rounded"
-      />
-      <h3 className="text-xl font-semibold mt-3">Project Name</h3>
-      <p className="text-gray-600 mt-2">
-        Project description goes here.
-      </p>
-      <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded">
-        Read More
-      </button>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+      
+      {/* Image */}
+      <div className="h-48 w-full overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="p-5 text-center">
+        <h4 className="font-semibold text-gray-800 mb-2">
+          {title}
+        </h4>
+
+        <p className="text-sm text-gray-500 mb-4">
+          {description}
+        </p>
+
+        <button className="bg-orange-500 text-white text-sm px-5 py-2 rounded-md hover:bg-orange-600 transition">
+          READ MORE
+        </button>
+      </div>
+
     </div>
   );
 };

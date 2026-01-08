@@ -1,8 +1,11 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
-import Projects from '../components/Projects'
 import Hero from '../components/Hero'
 import WhyChooseUs from '../components/WhyChooseUs'
+import AboutUs from '../components/AboutUs'
+import OurProjects from '../components/OurProjects'
+import HappyClient from '../components/HappyClient '
+import ListingProcess from '../components/ListingProcess'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
     return (
@@ -10,6 +13,11 @@ const HomePage = () => {
             <Navbar />
             <Hero />
             <WhyChooseUs />
+            <AboutUs />
+            <OurProjects />
+            <HappyClient />
+            <ListingProcess />
+            <Footer />
         </>
     )
 }
