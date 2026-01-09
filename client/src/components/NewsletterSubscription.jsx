@@ -1,6 +1,6 @@
 import RectangleImg from '../assets/landingpage_images/Rectangle.svg'
 
-const ListingProcess = () => {
+const NewsletterSubscription = () => {
     return (
         <section className="w-full">
 
@@ -45,9 +45,7 @@ const ListingProcess = () => {
 
                     {/* SUBSCRIBE */}
                     <div className="flex gap-3 mt-3 md:mt-0">
-                        <button className="border border-white px-4 py-2 rounded hover:bg-white hover:text-blue-600 transition">
-                            Subscribe to
-                        </button>
+                        <input type="email" placeholder='email' className='outline-2 outline-white rounded-sm px-2' />
 
                         <button className="bg-white text-blue-600 px-5 py-2 rounded font-semibold hover:bg-gray-100 transition">
                             Subscribe
@@ -61,4 +59,4 @@ const ListingProcess = () => {
     );
 };
 
-export default ListingProcess;
+export default NewsletterSubscription;

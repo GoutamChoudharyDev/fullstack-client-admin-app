@@ -52,9 +52,9 @@ const Hero = () => {
                                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 placeholder-gray-300 focus:outline-none focus:border-orange-500"
                             />
 
-                            <textarea
-                                rows="3"
-                                placeholder="Message"
+                           <input
+                                type="text"
+                                placeholder="city"
                                 className="w-full px-4 py-3 rounded-md bg-transparent border border-gray-400 placeholder-gray-300 focus:outline-none focus:border-orange-500"
                             />
 

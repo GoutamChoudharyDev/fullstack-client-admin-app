@@ -3,9 +3,9 @@ import Hero from '../../components/Hero'
 import WhyChooseUs from '../../components/WhyChooseUs'
 import AboutUs from '../../components/AboutUs'
 import OurProjects from '../../components/OurProjects'
-import HappyClient from '../../components/HappyClient '
-import ListingProcess from '../../components/ListingProcess'
+import HappyClient from '../../components/HappyClient'
 import Footer from '../../components/Footer'
+import NewsletterSubscription from '../../components/NewsletterSubscription'
 
 const HomePage = () => {
     return (
@@ -16,7 +16,7 @@ const HomePage = () => {
             <AboutUs />
             <OurProjects />
             <HappyClient />
-            <ListingProcess />
+            <NewsletterSubscription />
             <Footer />
         </>
     )
