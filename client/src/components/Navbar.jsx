@@ -34,13 +34,14 @@ const Navbar = () => {
               </a>
             ))}
 
-            {/* Contact Button */}
-            <a
-              href="#contact"
-              className="bg-orange-500 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-orange-600 transition"
+            {/* admin */}
+            <Link
+              to="/admin"
+              className="px-3 py-2 rounded-md bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
+              onClick={() => setIsOpen(false)}
             >
-              CONTACT
-            </a>
+              ADMIN
+            </Link>
           </nav>
 
           {/* Mobile Hamburger */}
