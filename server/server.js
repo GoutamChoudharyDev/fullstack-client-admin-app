@@ -13,7 +13,14 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173", // dev
+        "https://fullstack-client-admin-app.vercel.app" // production
+    ],
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
