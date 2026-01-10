@@ -1,7 +1,8 @@
+
 const ProjectCard = ({ image, title, description }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      
+
       {/* Image */}
       <div className="h-48 w-full overflow-hidden">
         <img

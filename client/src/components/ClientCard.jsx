@@ -1,7 +1,7 @@
+
 const ClientCard = ({ image, name, description, designation }) => {
   return (
     <div className="bg-white rounded-xl p-8 shadow-md hover:-translate-y-2 transition-transform duration-300">
-
       <img
         src={image}
         alt={name}

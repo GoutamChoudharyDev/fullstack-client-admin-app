@@ -1,39 +1,32 @@
+import { useEffect, useState } from "react";
+import API from "../services/api.js";
 import ProjectCard from "./ProjectCard";
 
-import Project1 from "../assets/landingpage_images/about3.svg";
-import Project2 from "../assets/landingpage_images/project2.svg";
-import Project3 from "../assets/landingpage_images/project3.svg";
-import Project4 from "../assets/landingpage_images/project4.svg";
-import Project5 from "../assets/landingpage_images/about2.svg";
-
 const OurProjects = () => {
-  const projects = [
-    {
-      image: Project1,
-      title: "Consultation",
-      description: "Project planning and consultation"
-    },
-    {
-      image: Project2,
-      title: "Design",
-      description: "Property design solutions"
-    },
-    {
-      image: Project3,
-      title: "Marketing & Design",
-      description: "Complete branding solutions"
-    },
-    {
-      image: Project4,
-      title: "Consultation & Marketing",
-      description: "End-to-end market strategy"
-    },
-    {
-      image: Project5,
-      title: "Consultation",
-      description: "Client-focused consultation"
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  // Fetch projects from backend
+  const fetchProjects = async () => {
+    try {
+      setLoading(true);
+      setError("");
+      const res = await API.get("/projects");
+
+      // Backend response: { success: true, projects: [...] }
+      setProjects(res.data.projects || []); // handle empty or undefined projects
+    } catch (err) {
+      console.error("Failed to fetch projects", err);
+      setError("Failed to load projects. Please try again later.");
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <section className="py-24 bg-[#f9fbff]">
@@ -50,18 +43,26 @@ const OurProjects = () => {
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-            />
-          ))}
-        </div>
-
+        {/* States */}
+        {loading ? (
+          <p className="text-center text-gray-500 mt-8">Loading projects...</p>
+        ) : error ? (
+          <p className="text-center text-red-500 mt-8">{error}</p>
+        ) : projects.length === 0 ? (
+          <p className="text-center text-gray-500 mt-8">No projects available</p>
+        ) : (
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project._id}
+                // If no image, show a default placeholder
+                image={project.image || "/default-image.jpg"}
+                title={project.title}
+                description={project.description}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

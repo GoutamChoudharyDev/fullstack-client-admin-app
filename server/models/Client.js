@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const ClientSchema = new mongoose.Schema({
-    image: { type: String, required: true },
+    image: { type: String, required: false },
     description: { type: String, required: true },
     name: { type: String, required: true, trim: true },
     designation: { type: String, required: true }

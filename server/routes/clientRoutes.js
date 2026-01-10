@@ -1,10 +1,13 @@
 import express from "express";
-import {addClient, getClients} from "../controllers/clientController.js";
-import upload from "../middlewares/upload.js";
+import upload from "../middlewares/multer.js";
+import { addClient, getClients } from "../controllers/clientController.js";
 
 const router = express.Router();
 
-router.post("/", upload.single("image"), addClient);
+// Add client (image optional)
+router.post("/add", upload.single("image"), addClient);
+
+// Get all clients
 router.get("/", getClients);
 
 export default router;
