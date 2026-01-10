@@ -1,5 +1,5 @@
 import Client from "../models/Client.js";
-import { uploadFile } from "../config/cloudinary.js";
+import { uploadOnCloudinary } from "../config/cloudinary.js";
 
 // Add client (image optional)
 export const addClient = async (req, res) => {
@@ -17,14 +17,14 @@ export const addClient = async (req, res) => {
     let imageUrl = null;
 
     if (req.file?.path) {
-      imageUrl = await uploadFile(req.file.path);
+      imageUrl = await uploadOnCloudinary(req.file.path);
     }
 
     const client = await Client.create({
       name,
       description,
       designation,
-      image: imageUrl.secure_url,
+      image: imageUrl,
     });
 
     res.status(201).json({
