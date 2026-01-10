@@ -9,7 +9,6 @@ import ViewSubscribers from "./pages/adminpanel/ViewSubscribers"
 const App = () => {
   return (
     <Routes>
-
       {/* Landing Page */}
       <Route path="/" element={<HomePage />} />
 

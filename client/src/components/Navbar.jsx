@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../assets/landingpage_images/logo.svg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,13 +76,13 @@ const Navbar = () => {
               </a>
             ))}
 
-            <a
-              href="#contact"
+            <Link
+              to="/admin"
               className="px-3 py-2 rounded-md bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
               onClick={() => setIsOpen(false)}
             >
-              CONTACT
-            </a>
+              ADMIN
+            </Link>
           </nav>
         )}
       </div>
