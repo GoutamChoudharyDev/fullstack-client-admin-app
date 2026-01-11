@@ -62,7 +62,7 @@ const AddClient = () => {
       data.append("description", formData.description);
       if (image) data.append("image", image); // append only if image exists
 
-      // ✅ Correct endpoint
+      // Correct endpoint
       await API.post("/clients/add", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
